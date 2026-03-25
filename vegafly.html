@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VegaFly | Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --theme-primary: #06b6d4;
+            --theme-secondary: #22d3ee;
+            --theme-bg-accent: rgba(6, 182, 212, 0.08);
+            --theme-glow: rgba(6, 182, 212, 0.3);
+        }
+        body { 
+            color: var(--text-primary); 
+            font-family: var(--font-sans); 
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Project Header --- */
+        .project-hero {
+            text-align: center;
+            padding: 2rem 2rem 1rem;
+            position: relative;
+        }
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--theme-glow) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .project-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .project-hero h1 span { color: var(--theme-primary); }
+        .project-hero .project-category {
+            color: var(--theme-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            position: relative; z-index: 1;
+        }
+        .project-hero .project-desc {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 1rem auto 0;
+            line-height: 1.7;
+            position: relative; z-index: 1;
+        }
+
+        /* --- 3D Curved Carousel (CoverFlow) --- */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 450px;
+            max-height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            perspective: 1200px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            width: 50%;
+            max-width: 800px;
+            height: 80%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: transform, opacity;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .carousel-slide.center img {
+            box-shadow: 0 20px 60px var(--theme-glow);
+        }
+        
+        .carousel-slide.center {
+            cursor: zoom-in;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+            user-select: none;
+            backdrop-filter: blur(8px);
+        }
+        .carousel-nav:hover {
+            background: var(--theme-primary);
+            border-color: var(--theme-primary);
+            box-shadow: 0 0 20px var(--theme-glow);
+        }
+        .carousel-prev { left: 30px; }
+        .carousel-next { right: 30px; }
+        
+        .carousel-status {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0 0 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+        .carousel-status span { color: var(--theme-primary); font-size: 1.1rem; }
+
+        /* --- Lightbox Modal --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-img-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 60px 80px;
+            position: relative;
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10001;
+            background: none;
+            border: none;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .lightbox-close:hover { opacity: 1; transform: rotate(90deg); }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .lightbox-nav:hover {
+            background: var(--theme-primary);
+            border-color: var(--theme-primary);
+            box-shadow: 0 0 25px var(--theme-glow);
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-counter {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .lightbox-counter span { color: var(--theme-primary); }
+
+        /* --- Bottom bar --- */
+        .gallery-bottom {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            margin-top: auto;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--theme-primary);
+            color: var(--theme-primary);
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(5px);
+        }
+        .back-btn:hover {
+            background: var(--theme-primary);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--theme-glow);
+            transform: translateY(-3px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .carousel-slide { width: 70%; }
+            .carousel-nav { width: 45px; height: 45px; font-size: 1.8rem; }
+        }
+        
+        @media (max-width: 600px) {
+            .project-hero h1 { font-size: 2rem; }
+            .carousel-slide { width: 85%; height: 70%; }
+            .carousel-nav { width: 40px; height: 40px; font-size: 1.5rem; }
+            .carousel-prev { left: 10px; }
+            .carousel-next { right: 10px; }
+            .lightbox-img-wrapper { padding: 50px 10px; }
+            .lightbox-nav { width: 40px; height: 40px; font-size: 1.5rem; }
+            .lightbox-prev { left: 5px; }
+            .lightbox-next { right: 5px; }
+        }
+
+        /* --- Theme-specific overrides --- */
+        
+        /* === AEROSPACE THEME === */
+        body {{
+            background: #050a10;
+            background-image:
+                linear-gradient(135deg, rgba(6, 182, 212, 0.02) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(6, 182, 212, 0.02) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(6, 182, 212, 0.02) 25%, transparent 25%),
+                linear-gradient(315deg, rgba(6, 182, 212, 0.02) 25%, transparent 25%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        }}
+        .project-hero {{
+            border-bottom: 2px solid rgba(6, 182, 212, 0.1);
+        }}
+        .project-hero::before {{
+            width: 500px;
+            height: 200px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.15), transparent);
+            filter: blur(60px);
+            top: 0;
+        }}
+        .project-hero h1 {{
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 2.8rem;
+            font-weight: 900;
+        }}
+        .project-hero .project-category {{
+            letter-spacing: 5px;
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 2px;
+        }}
+        .project-hero .project-desc {{
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            padding: 1.2rem 0;
+        }}
+        .carousel-slide img {{
+            border-radius: 0;
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+        }}
+        .carousel-nav {{
+            clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+            border-radius: 0;
+            width: 60px;
+        }}
+        .back-btn {{
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+        }}
+    
+    </style>
+</head>
+<body>
+    <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding-top: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+
+        <!-- Project Header -->
+        <div class="project-hero">
+            <h1>VegaFly <span>Gallery</span></h1>
+            <p class="project-category">Remote Sensing Satellite · Imaging</p>
+            <p class="project-desc">VegaFly is a satellite project aimed at imaging and remote sensing applications. Gagan was engaged in firmware development, power subsystem design, radio communication, hardware design (PCBs), functional testing, and documentation.</p>
+        </div>
+
+        <!-- 3D Curved Carousel -->
+        <div class="carousel-wrapper" id="carousel-wrapper">
+            <div class="carousel-slide" data-index="0"><img src="images/vegafly_gallery/1.jpeg" alt="VegaFly photo 1"></div>
+            <div class="carousel-slide" data-index="1"><img src="images/vegafly_gallery/10.jpeg" alt="VegaFly photo 2"></div>
+            <div class="carousel-slide" data-index="2"><img src="images/vegafly_gallery/11.jpeg" alt="VegaFly photo 3"></div>
+            <div class="carousel-slide" data-index="3"><img src="images/vegafly_gallery/12.jpeg" alt="VegaFly photo 4"></div>
+            <div class="carousel-slide" data-index="4"><img src="images/vegafly_gallery/13.jpeg" alt="VegaFly photo 5"></div>
+            <div class="carousel-slide" data-index="5"><img src="images/vegafly_gallery/14.jpeg" alt="VegaFly photo 6"></div>
+            <div class="carousel-slide" data-index="6"><img src="images/vegafly_gallery/15.jpeg" alt="VegaFly photo 7"></div>
+            <div class="carousel-slide" data-index="7"><img src="images/vegafly_gallery/16.jpeg" alt="VegaFly photo 8"></div>
+            <div class="carousel-slide" data-index="8"><img src="images/vegafly_gallery/17.jpeg" alt="VegaFly photo 9"></div>
+            <div class="carousel-slide" data-index="9"><img src="images/vegafly_gallery/18.jpeg" alt="VegaFly photo 10"></div>
+            <div class="carousel-slide" data-index="10"><img src="images/vegafly_gallery/19.jpeg" alt="VegaFly photo 11"></div>
+            <div class="carousel-slide" data-index="11"><img src="images/vegafly_gallery/2.jpeg" alt="VegaFly photo 12"></div>
+            <div class="carousel-slide" data-index="12"><img src="images/vegafly_gallery/20.jpeg" alt="VegaFly photo 13"></div>
+            <div class="carousel-slide" data-index="13"><img src="images/vegafly_gallery/21.jpeg" alt="VegaFly photo 14"></div>
+            <div class="carousel-slide" data-index="14"><img src="images/vegafly_gallery/3.jpeg" alt="VegaFly photo 15"></div>
+            <div class="carousel-slide" data-index="15"><img src="images/vegafly_gallery/4.jpeg" alt="VegaFly photo 16"></div>
+            <div class="carousel-slide" data-index="16"><img src="images/vegafly_gallery/5.jpeg" alt="VegaFly photo 17"></div>
+            <div class="carousel-slide" data-index="17"><img src="images/vegafly_gallery/6.jpeg" alt="VegaFly photo 18"></div>
+            <div class="carousel-slide" data-index="18"><img src="images/vegafly_gallery/7.jpeg" alt="VegaFly photo 19"></div>
+            <div class="carousel-slide" data-index="19"><img src="images/vegafly_gallery/8.jpeg" alt="VegaFly photo 20"></div>
+            <div class="carousel-slide" data-index="20"><img src="images/vegafly_gallery/9.jpeg" alt="VegaFly photo 21"></div>
+            <div class="carousel-slide" data-index="21"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg" alt="VegaFly photo 22"></div>
+            <div class="carousel-slide" data-index="22"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg" alt="VegaFly photo 23"></div>
+            <div class="carousel-slide" data-index="23"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg" alt="VegaFly photo 24"></div>
+            <div class="carousel-slide" data-index="24"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg" alt="VegaFly photo 25"></div>
+            <div class="carousel-slide" data-index="25"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg" alt="VegaFly photo 26"></div>
+            <div class="carousel-slide" data-index="26"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg" alt="VegaFly photo 27"></div>
+            <div class="carousel-slide" data-index="27"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg" alt="VegaFly photo 28"></div>
+            <div class="carousel-slide" data-index="28"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg" alt="VegaFly photo 29"></div>
+            
+            <button class="carousel-nav carousel-prev" id="carousel-prev">&#8249;</button>
+            <button class="carousel-nav carousel-next" id="carousel-next">&#8250;</button>
+        </div>
+        
+        <div class="carousel-status"><span id="carousel-current">1</span> / <span id="carousel-total">29</span></div>
+
+        <!-- Back Button -->
+        <div class="gallery-bottom">
+            <a href="index.html#projects" class="back-btn">Go Back to Portfolio</a>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lb-close">&times;</button>
+        <div class="lightbox-img-wrapper">
+            <button class="lightbox-nav lightbox-prev" id="lb-prev">&#8249;</button>
+            <img class="lightbox-img" id="lb-img" src="" alt="Gallery Image">
+            <button class="lightbox-nav lightbox-next" id="lb-next">&#8250;</button>
+        </div>
+        <div class="lightbox-counter"><span id="lb-current">1</span> / <span id="lb-total">1</span></div>
+    </div>
+
+    <script>
+        // ========== 3D COVERFLOW CAROUSEL ==========
+        const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+        
+        const carouselCurrentEl = document.getElementById('carousel-current');
+        const carouselTotalEl = document.getElementById('carousel-total');
+        
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                // Calculate distance from center (handles wrap-around)
+                let diff = index - currentIndex;
+                
+                // Keep differences within shortest path (-half to +half length)
+                if (diff > totalSlides / 2) diff -= totalSlides;
+                if (diff < -totalSlides / 2) diff += totalSlides;
+                
+                const absDiff = Math.abs(diff);
+                
+                // Visual calculations
+                const translateX = diff * 50; // shift 50% left/right relative to its width
+                const translateZ = absDiff * -200; // push backwards
+                const rotateY = diff * -25; // curve inward
+                
+                const zIndex = totalSlides - absDiff;
+                const opacity = absDiff > 3 ? 0 : (1 - (absDiff * 0.2));
+                
+                slide.style.transform = `translateX(${translateX}%) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+                slide.style.zIndex = zIndex;
+                slide.style.opacity = opacity > 0 ? opacity : 0;
+                
+                // Darken side slides slightly
+                slide.style.filter = absDiff === 0 ? 'brightness(1)' : 'brightness(0.6)';
+                
+                if (absDiff === 0) {
+                    slide.classList.add('center');
+                } else {
+                    slide.classList.remove('center');
+                }
+                
+                if (absDiff > 3) {
+                    slide.style.pointerEvents = 'none';
+                } else {
+                    slide.style.pointerEvents = 'auto';
+                }
+            });
+            
+            carouselCurrentEl.textContent = currentIndex + 1;
+        }
+        
+        function goToSlide(idx) {
+            if (totalSlides === 0) return;
+            currentIndex = ((idx % totalSlides) + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Manual navigation buttons
+        document.getElementById('carousel-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            goToSlide(currentIndex - 1);
+        });
+        document.getElementById('carousel-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            goToSlide(currentIndex + 1);
+        });
+        
+        // Interactive clicking on slides
+        slides.forEach((slide, idx) => {
+            slide.addEventListener('click', () => {
+                if (idx === currentIndex) {
+                    // If clicking the center slide, open lightbox
+                    openLightbox(idx);
+                } else {
+                    // If clicking a side slide, bring it to center
+                    goToSlide(idx);
+                }
+            });
+        });
+        
+        // Initialize carousel
+        updateCarousel();
+
+
+        // ========== LIGHTBOX ==========
+        const images = ["images/vegafly_gallery/1.jpeg", "images/vegafly_gallery/10.jpeg", "images/vegafly_gallery/11.jpeg", "images/vegafly_gallery/12.jpeg", "images/vegafly_gallery/13.jpeg", "images/vegafly_gallery/14.jpeg", "images/vegafly_gallery/15.jpeg", "images/vegafly_gallery/16.jpeg", "images/vegafly_gallery/17.jpeg", "images/vegafly_gallery/18.jpeg", "images/vegafly_gallery/19.jpeg", "images/vegafly_gallery/2.jpeg", "images/vegafly_gallery/20.jpeg", "images/vegafly_gallery/21.jpeg", "images/vegafly_gallery/3.jpeg", "images/vegafly_gallery/4.jpeg", "images/vegafly_gallery/5.jpeg", "images/vegafly_gallery/6.jpeg", "images/vegafly_gallery/7.jpeg", "images/vegafly_gallery/8.jpeg", "images/vegafly_gallery/9.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg"];
+        let lightboxIndex = 0;
+
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCurrent = document.getElementById('lb-current');
+        const lbTotal = document.getElementById('lb-total');
+        const lbClose = document.getElementById('lb-close');
+        const lbPrev = document.getElementById('lb-prev');
+        const lbNext = document.getElementById('lb-next');
+
+        lbTotal.textContent = images.length;
+
+        function showLightboxImage(idx) {
+            lightboxIndex = (idx + images.length) % images.length;
+            lbImg.style.opacity = '0';
+            setTimeout(() => {
+                lbImg.src = images[lightboxIndex];
+                lbImg.onload = () => { lbImg.style.opacity = '1'; };
+                lbCurrent.textContent = lightboxIndex + 1;
+                
+                // Synchronize carousel under lightbox
+                goToSlide(lightboxIndex);
+            }, 150);
+        }
+
+        function openLightbox(idx) {
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            showLightboxImage(idx);
+        }
+
+        // Navigation in lightbox
+        lbNext.addEventListener('click', (e) => { e.stopPropagation(); showLightboxImage(lightboxIndex + 1); });
+        lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showLightboxImage(lightboxIndex - 1); });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        lbClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrapper')) closeLightbox(); });
+
+        // Keyboard navigation (handles both carousel and lightbox)
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowRight') showLightboxImage(lightboxIndex + 1);
+                if (e.key === 'ArrowLeft') showLightboxImage(lightboxIndex - 1);
+                if (e.key === 'Escape') closeLightbox();
+            } else {
+                if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+                if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+            }
+        });
+        
+        // Touch/Swipe Support for both
+        let touchStartX = 0;
+        
+        // Carousel Swipe
+        const carouselWrapper = document.getElementById('carousel-wrapper');
+        carouselWrapper.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        carouselWrapper.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) goToSlide(currentIndex + 1);
+                else goToSlide(currentIndex - 1);
+            }
+        });
+        
+        // Lightbox Swipe
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) showLightboxImage(lightboxIndex + 1);
+                else showLightboxImage(lightboxIndex - 1);
+            }
+        });
+
+    </script>
+</body>
+</html>

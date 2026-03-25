@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gagan Pandey | Portfolio</title>
+    <meta name="description" content="Portfolio of Gagan Pandey, R&D Electronics Engineer specializing in Embedded Systems and Satellite Technology.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">Gagan<span class="highlight">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="section">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <p class="subtitle">Electrical · Electronics · Embedded · Bio-Engineering</p>
+                <h1 class="title">Hi, I'm <span class="highlight gradient-text" id="typed-name">Gagan Pandey</span></h1>
+                <p class="description">
+                    R&D Electronics Engineer from Nepal building at the intersection of hardware, firmware, and intelligence — from PocketQube satellites in orbit to IoT-controlled bio-systems on the ground.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+            </div>
+            <div class="hero-graphic fade-in-up delay-1">
+                <div class="glow-orb"></div>
+                <div class="glass-card">
+                    <div class="card-icon">🛰️</div>
+                    <div class="card-text">
+                        <h3>Satellite Engineering</h3>
+                        <p>4 PocketQube missions for low-Earth orbit.</p>
+                    </div>
+                </div>
+                <div class="glass-card secondary-card">
+                    <div class="card-icon">🔬</div>
+                    <div class="card-text">
+                        <h3>Bio & IoT Systems</h3>
+                        <p>Smart incubators, automated plants, PID control.</p>
+                    </div>
+                </div>
+                <div class="glass-card tertiary-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">
+                        <h3>Embedded & RF</h3>
+                        <p>PCBs, antennas, firmware, and beyond.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Skills Section -->
+    <section id="about" class="section">
+        <h2 class="section-title fade-in">About <span class="highlight">Me</span></h2>
+        <div class="about-content grid-2">
+            <div class="about-text glass-panel fade-in-left">
+                <h3>My Journey</h3>
+                <p>I am a highly motivated Engineer with a strong foundation in Embedded Systems, Electronics Devices and Circuits, Computer Programming, Control Theory, and Communication Systems.</p>
+                <p>Having completed my Bachelor's at <strong>Kantipur Engineering College</strong>, I have heavily focused my skills on turning innovative ideas into practical architectures alongside technologies like Machine Intelligence and Satellite sub-systems.</p>
+                <div class="education">
+                    <h4>🎓 Education</h4>
+                    <p><strong>BE in Electronics, Communication & Information</strong></p>
+                    <p class="sub-text">Kantipur Engineering College, Dhaphakhel (2021 - 2025)</p>
+                </div>
+            </div>
+            
+            <div class="skills-container fade-in-right">
+                <h3>Technical Arsenal</h3>
+                <div class="skill-category">
+                    <h4>Core Electronics & IoT</h4>
+                    <div class="tags">
+                        <span class="tag">STM32 / Atmega</span>
+                        <span class="tag">ESP32 / ESP8266</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">PCB Design</span>
+                        <span class="tag">IoT Protocols</span>
+                        <span class="tag">Control Systems (PID)</span>
+                        <span class="tag">PLC & SCADA</span>
+                        <span class="tag">KNX Automation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming & Software</h4>
+                    <div class="tags">
+                        <span class="tag">C / C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">JavaScript / HTML / CSS</span>
+                        <span class="tag">ROS 2</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & Machine Learning</h4>
+                    <div class="tags">
+                        <span class="tag">Computer Vision (OpenCV)</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">NLP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Electronics & RF</h4>
+                    <div class="tags">
+                        <span class="tag">KiCad (Schematic/Layout)</span>
+                        <span class="tag">Logic Analyzer</span>
+                        <span class="tag">VNA</span>
+                        <span class="tag">Antenna Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>CAD & Simulation</h4>
+                    <div class="tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">MATLAB / Simulink</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-alt">
+        <h2 class="section-title fade-in">Professional <span class="highlight">Experience</span></h2>
+        <div class="timeline fade-in-up">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel">
+                    <h3>R&D Electronics Engineer</h3>
+                    <p class="timeline-org">Orion Space Pvt Ltd, Nepal</p>
+                    <p class="timeline-date">May 2025 - Present</p>
+                    <p>Spearheading research and development in electronics for upcoming satellite deployments and ground-station infrastructure.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel">
+                    <h3>Visiting Instructor – Satellite Workshop</h3>
+                    <p class="timeline-org">Hanoi, Vietnam</p>
+                    <p class="timeline-date">August 2025</p>
+                    <ul>
+                        <li>Conducted intensive training on the PocketQube satellite to 20+ university students.</li>
+                        <li>Designed and delivered hands-on labs on satellite subsystem integration and firmware workflows.</li>
+                        <li>Prepared comprehensive technical documentation and example code.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel">
+                    <h3>President, Robotics & Electronics Club</h3>
+                    <p class="timeline-org">Kantipur Engineering College</p>
+                    <p class="timeline-date">2021 - 2025</p>
+                    <ul>
+                        <li>Secured first place in multiple national-level robotics competitions.</li>
+                        <li>Received accolades such as the Best Innovative Idea Award and the Emerging Technology Award.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Featured <span class="highlight">Projects</span></h2>
+        <div class="project-grid">
+            
+            <div class="project-card glass-panel fade-in-up delay-1">
+                <div class="project-image-container">
+                    <img src="images/sanosat.jpeg" alt="SanoSat-II" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>SanoSat-II</h3>
+                    <p class="project-category">PocketQube Satellite</p>
+                    <p>Scheduled orbital deployment focusing on Earth observation. Contributed to hardware design (4-layer PCB), Antenna Design, Subsystem Testing, Link Budget and Technical Documentation.</p>
+                    <div class="project-tags">
+                        <span class="tag small">Hardware</span>
+                        <span class="tag small">System Testing</span>
+                        <span class="tag small">Antenna Design</span>
+                    </div>
+                    <button onclick="openGallery('sanosat')" class="gallery-link btn-link" style="background:none;border:none;padding:0;font:inherit;cursor:pointer;outline:none;">View Gallery →</button>
+                </div>
+            </div>
+
+            <div class="project-card glass-panel fade-in-up delay-2">
+                <div class="project-image-container">
+                    <img src="images/decimalsat.jpeg" alt="Decimal Sat" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>Decimal Sat</h3>
+                    <p class="project-category">PocketQube Satellite</p>
+                    <p>Designed for Earth observation, imaging, and bio-product carrying. Contributed to communication systems, power management, firmware development, PCB design, and board-level integration.</p>
+                    <div class="project-tags">
+                        <span class="tag small">Firmware</span>
+                        <span class="tag small">Power Management</span>
+                        <span class="tag small">Integration</span>
+                    </div>
+                    <button onclick="openGallery('decimalsat')" class="gallery-link btn-link" style="background:none;border:none;padding:0;font:inherit;cursor:pointer;outline:none;">View Gallery →</button>
+                </div>
+            </div>
+
+            <div class="project-card glass-panel fade-in-up delay-1">
+                <div class="project-image-container">
+                    <img src="images/vegafly.jpeg" alt="VegaFly" class="project-img">
+                </div>
+                <div class="project-content">
+                    <h3>VegaFly</h3>
+                    <p class="project-category">Remote Sensing Satellite</p>
+                    <p>A satellite project aimed at imaging and remote sensing applications. Engaged in firmware development, power subsystem design, radio communication, and functional testing.</p>
+                    <div class="project-tags">
+                        <span class="tag small">Radio Comm</span>
+                        <span class="tag small">Power Subsystem</span>
+                        <span class="tag small">Testing</span>
+                    </div>
+                    <button onclick="openGallery('vegafly')" class="gallery-link btn-link" style="background:none;border:none;padding:0;font:inherit;cursor:pointer;outline:none;">View Gallery →</button>
+                </div>
+            </div>
+
+            <div class="project-card glass-panel fade-in-up delay-2">
+                <div class="project-content">
+                    <h3>RingShout</h3>
+                    <p class="project-category">Streaming Satellite</p>
+                    <p>A PocketQube satellite focused on streaming audio data from Low Earth orbit. Involved in full-cycle Electronics Development: PCB Design (4-layer), Board assembly, and Hardware validation.</p>
+                    <div class="project-tags">
+                        <span class="tag small">PCB Design</span>
+                        <span class="tag small">Board Assembly</span>
+                        <span class="tag small">Validation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card glass-panel fade-in-up delay-1">
+                <div class="project-content">
+                    <h3>IoT PID-Controlled Egg Incubator</h3>
+                    <p class="project-category">IoT & Automation</p>
+                    <p>Designed an IoT-enabled egg incubator using PID control for real-time regulation of temperature and humidity. Implemented on ESP32 with a real-time monitoring dashboard.</p>
+                    <div class="project-tags">
+                        <span class="tag small">ESP32</span>
+                        <span class="tag small">PID Control</span>
+                        <span class="tag small">Dashboard</span>
+                    </div>
+                    <a href="https://doi.org/10.70504/ijepe.v2i3.14313" target="_blank" class="gallery-link">View Publication →</a>
+                </div>
+            </div>
+
+            <div class="project-card glass-panel fade-in-up delay-2">
+                <div class="project-content">
+                    <h3>Automatic Bottle Filling Plant</h3>
+                    <p class="project-category">Computer Vision</p>
+                    <p>Developed an automated prototype system for industrial bottle filling and capping with visual inspection (OpenCV Canny Edge) running on a Raspberry Pi and Arduino UNO.</p>
+                    <div class="project-tags">
+                        <span class="tag small">OpenCV</span>
+                        <span class="tag small">Raspberry Pi</span>
+                        <span class="tag small">Arduino UNO</span>
+                    </div>
+                    <a href="https://doi.org/10.70504/ijepe.v2i3.14361" target="_blank" class="gallery-link">View Publication →</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="section bg-alt">
+        <div class="footer-container glass-panel fade-in-up">
+            <h2>Let's build something <span class="highlight">amazing</span> together.</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+            <div class="contact-methods">
+                <a href="mailto:pandeygagan49@gmail.com" class="contact-item">
+                    <span class="icon">✉️</span>
+                    <span>pandeygagan49@gmail.com</span>
+                </a>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>Kaushaltar, Bhaktapur, Nepal</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/gagan-pandey-572763310/" target="_blank" class="social-btn">LinkedIn</a>
+                <a href="https://github.com/Gaggpa" target="_blank" class="social-btn">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gagan Pandey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SPA Galleries Container -->
+    <div id="spa-galleries-container">
+
+<div id="gallery-sanosat" class="gallery-overlay">
+    <div class="gallery-container" style="--theme-primary: #10b981; --theme-glow: rgba(16, 185, 129, 0.3);">
+        
+        <div class="project-hero">
+            <h1>SanoSat-II <span>Gallery</span></h1>
+            <p class="project-category">PocketQube Satellite · Earth Observation</p>
+            <p class="project-desc">SanoSat-II is a PocketQube satellite scheduled for orbital deployment, focused on Earth observation and imaging. Gagan contributed to satellite imaging mission design, hardware design (multi-layer PCBs), antenna design, subsystem testing, link budget analysis, and technical documentation.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="sanosat-carousel-wrapper">
+            <div class="carousel-slide sanosat-slide" data-index="0"><img src="images/sanosat_gallery/2sasts2.jpeg" alt="SanoSat-II photo 1"></div>
+            <div class="carousel-slide sanosat-slide" data-index="1"><img src="images/sanosat_gallery/2sats.jpeg" alt="SanoSat-II photo 2"></div>
+            <div class="carousel-slide sanosat-slide" data-index="2"><img src="images/sanosat_gallery/EPS_connector.jpeg" alt="SanoSat-II photo 3"></div>
+            <div class="carousel-slide sanosat-slide" data-index="3"><img src="images/sanosat_gallery/EPS_vbat.jpeg" alt="SanoSat-II photo 4"></div>
+            <div class="carousel-slide sanosat-slide" data-index="4"><img src="images/sanosat_gallery/RBFM&Vbat1.jpeg" alt="SanoSat-II photo 5"></div>
+            <div class="carousel-slide sanosat-slide" data-index="5"><img src="images/sanosat_gallery/RBFM&vbat0.jpeg" alt="SanoSat-II photo 6"></div>
+            <div class="carousel-slide sanosat-slide" data-index="6"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg" alt="SanoSat-II photo 7"></div>
+            <div class="carousel-slide sanosat-slide" data-index="7"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg" alt="SanoSat-II photo 8"></div>
+            <div class="carousel-slide sanosat-slide" data-index="8"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg" alt="SanoSat-II photo 9"></div>
+            <div class="carousel-slide sanosat-slide" data-index="9"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg" alt="SanoSat-II photo 10"></div>
+            <div class="carousel-slide sanosat-slide" data-index="10"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg" alt="SanoSat-II photo 11"></div>
+            <div class="carousel-slide sanosat-slide" data-index="11"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg" alt="SanoSat-II photo 12"></div>
+            <div class="carousel-slide sanosat-slide" data-index="12"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg" alt="SanoSat-II photo 13"></div>
+            <div class="carousel-slide sanosat-slide" data-index="13"><img src="images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg" alt="SanoSat-II photo 14"></div>
+            <div class="carousel-slide sanosat-slide" data-index="14"><img src="images/sanosat_gallery/back1.jpeg" alt="SanoSat-II photo 15"></div>
+            <div class="carousel-slide sanosat-slide" data-index="15"><img src="images/sanosat_gallery/back2.jpeg" alt="SanoSat-II photo 16"></div>
+            <div class="carousel-slide sanosat-slide" data-index="16"><img src="images/sanosat_gallery/base1.jpeg" alt="SanoSat-II photo 17"></div>
+            <div class="carousel-slide sanosat-slide" data-index="17"><img src="images/sanosat_gallery/base2.jpeg" alt="SanoSat-II photo 18"></div>
+            <div class="carousel-slide sanosat-slide" data-index="18"><img src="images/sanosat_gallery/battercharger2.jpeg" alt="SanoSat-II photo 19"></div>
+            <div class="carousel-slide sanosat-slide" data-index="19"><img src="images/sanosat_gallery/batteryCharger1.jpeg" alt="SanoSat-II photo 20"></div>
+            <div class="carousel-slide sanosat-slide" data-index="20"><img src="images/sanosat_gallery/batterycharger_connector.jpeg" alt="SanoSat-II photo 21"></div>
+            <div class="carousel-slide sanosat-slide" data-index="21"><img src="images/sanosat_gallery/deployment1.jpeg" alt="SanoSat-II photo 22"></div>
+            <div class="carousel-slide sanosat-slide" data-index="22"><img src="images/sanosat_gallery/deployment1_back.jpeg" alt="SanoSat-II photo 23"></div>
+            <div class="carousel-slide sanosat-slide" data-index="23"><img src="images/sanosat_gallery/deployment2.jpeg" alt="SanoSat-II photo 24"></div>
+            <div class="carousel-slide sanosat-slide" data-index="24"><img src="images/sanosat_gallery/deployment2_back.jpeg" alt="SanoSat-II photo 25"></div>
+            <div class="carousel-slide sanosat-slide" data-index="25"><img src="images/sanosat_gallery/eps.jpeg" alt="SanoSat-II photo 26"></div>
+            <div class="carousel-slide sanosat-slide" data-index="26"><img src="images/sanosat_gallery/final.jpeg" alt="SanoSat-II photo 27"></div>
+            <div class="carousel-slide sanosat-slide" data-index="27"><img src="images/sanosat_gallery/int1.jpeg" alt="SanoSat-II photo 28"></div>
+            <div class="carousel-slide sanosat-slide" data-index="28"><img src="images/sanosat_gallery/int2.jpeg" alt="SanoSat-II photo 29"></div>
+            <div class="carousel-slide sanosat-slide" data-index="29"><img src="images/sanosat_gallery/int3.jpeg" alt="SanoSat-II photo 30"></div>
+            <div class="carousel-slide sanosat-slide" data-index="30"><img src="images/sanosat_gallery/int4.jpeg" alt="SanoSat-II photo 31"></div>
+            <div class="carousel-slide sanosat-slide" data-index="31"><img src="images/sanosat_gallery/int5.jpeg" alt="SanoSat-II photo 32"></div>
+            <div class="carousel-slide sanosat-slide" data-index="32"><img src="images/sanosat_gallery/int6.jpeg" alt="SanoSat-II photo 33"></div>
+            <div class="carousel-slide sanosat-slide" data-index="33"><img src="images/sanosat_gallery/programming1.jpeg" alt="SanoSat-II photo 34"></div>
+            <div class="carousel-slide sanosat-slide" data-index="34"><img src="images/sanosat_gallery/programming2.jpeg" alt="SanoSat-II photo 35"></div>
+            <div class="carousel-slide sanosat-slide" data-index="35"><img src="images/sanosat_gallery/top1.jpeg" alt="SanoSat-II photo 36"></div>
+            <div class="carousel-slide sanosat-slide" data-index="36"><img src="images/sanosat_gallery/top2.jpeg" alt="SanoSat-II photo 37"></div>
+            
+            <button class="carousel-nav carousel-prev" id="sanosat-prev">&#8249;</button>
+            <button class="carousel-nav carousel-next" id="sanosat-next">&#8250;</button>
+        </div>
+        
+        <div class="carousel-status"><span id="sanosat-current">1</span> / <span>37</span></div>
+
+        <div class="gallery-bottom">
+            <button onclick="closeGallery()" class="back-btn">Go Back to Portfolio</button>
+        </div>
+        
+    </div>
+</div>
+
+<div id="gallery-decimalsat" class="gallery-overlay">
+    <div class="gallery-container" style="--theme-primary: #f59e0b; --theme-glow: rgba(245, 158, 11, 0.3);">
+        
+        <div class="project-hero">
+            <h1>Decimal Sat <span>Gallery</span></h1>
+            <p class="project-category">PocketQube Satellite · Bio-Product Carrier</p>
+            <p class="project-desc">Decimal Sat is a PocketQube satellite designed for Earth observation, imaging, and bio-product carrying. Gagan contributed to communication systems, power management, firmware development, PCB design, antenna design, board-level integration, testing, and technical reporting.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="decimalsat-carousel-wrapper">
+            <div class="carousel-slide decimalsat-slide" data-index="0"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.47 PM.jpeg" alt="Decimal Sat photo 1"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="1"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.48 PM.jpeg" alt="Decimal Sat photo 2"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="2"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM (1).jpeg" alt="Decimal Sat photo 3"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="3"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM (2).jpeg" alt="Decimal Sat photo 4"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="4"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM.jpeg" alt="Decimal Sat photo 5"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="5"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.50 PM (1).jpeg" alt="Decimal Sat photo 6"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="6"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.50 PM.jpeg" alt="Decimal Sat photo 7"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="7"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.51 PM (1).jpeg" alt="Decimal Sat photo 8"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="8"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.51 PM.jpeg" alt="Decimal Sat photo 9"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="9"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (1).jpeg" alt="Decimal Sat photo 10"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="10"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (2).jpeg" alt="Decimal Sat photo 11"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="11"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (3).jpeg" alt="Decimal Sat photo 12"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="12"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM.jpeg" alt="Decimal Sat photo 13"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="13"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.56 PM (1).jpeg" alt="Decimal Sat photo 14"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="14"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.56 PM.jpeg" alt="Decimal Sat photo 15"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="15"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.57 PM (1).jpeg" alt="Decimal Sat photo 16"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="16"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.57 PM.jpeg" alt="Decimal Sat photo 17"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="17"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM (1).jpeg" alt="Decimal Sat photo 18"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="18"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM (2).jpeg" alt="Decimal Sat photo 19"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="19"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM.jpeg" alt="Decimal Sat photo 20"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="20"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.05 PM.jpeg" alt="Decimal Sat photo 21"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="21"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.06 PM (1).jpeg" alt="Decimal Sat photo 22"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="22"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.06 PM.jpeg" alt="Decimal Sat photo 23"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="23"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.07 PM.jpeg" alt="Decimal Sat photo 24"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="24"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.08 PM.jpeg" alt="Decimal Sat photo 25"></div>
+            <div class="carousel-slide decimalsat-slide" data-index="25"><img src="images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.09 PM.jpeg" alt="Decimal Sat photo 26"></div>
+            
+            <button class="carousel-nav carousel-prev" id="decimalsat-prev">&#8249;</button>
+            <button class="carousel-nav carousel-next" id="decimalsat-next">&#8250;</button>
+        </div>
+        
+        <div class="carousel-status"><span id="decimalsat-current">1</span> / <span>26</span></div>
+
+        <div class="gallery-bottom">
+            <button onclick="closeGallery()" class="back-btn">Go Back to Portfolio</button>
+        </div>
+        
+    </div>
+</div>
+
+<div id="gallery-vegafly" class="gallery-overlay">
+    <div class="gallery-container" style="--theme-primary: #06b6d4; --theme-glow: rgba(6, 182, 212, 0.3);">
+        
+        <div class="project-hero">
+            <h1>VegaFly <span>Gallery</span></h1>
+            <p class="project-category">Remote Sensing Satellite · Imaging</p>
+            <p class="project-desc">VegaFly is a satellite project aimed at imaging and remote sensing applications. Gagan was engaged in firmware development, power subsystem design, radio communication, hardware design (PCBs), functional testing, and documentation.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="vegafly-carousel-wrapper">
+            <div class="carousel-slide vegafly-slide" data-index="0"><img src="images/vegafly_gallery/1.jpeg" alt="VegaFly photo 1"></div>
+            <div class="carousel-slide vegafly-slide" data-index="1"><img src="images/vegafly_gallery/10.jpeg" alt="VegaFly photo 2"></div>
+            <div class="carousel-slide vegafly-slide" data-index="2"><img src="images/vegafly_gallery/11.jpeg" alt="VegaFly photo 3"></div>
+            <div class="carousel-slide vegafly-slide" data-index="3"><img src="images/vegafly_gallery/12.jpeg" alt="VegaFly photo 4"></div>
+            <div class="carousel-slide vegafly-slide" data-index="4"><img src="images/vegafly_gallery/13.jpeg" alt="VegaFly photo 5"></div>
+            <div class="carousel-slide vegafly-slide" data-index="5"><img src="images/vegafly_gallery/14.jpeg" alt="VegaFly photo 6"></div>
+            <div class="carousel-slide vegafly-slide" data-index="6"><img src="images/vegafly_gallery/15.jpeg" alt="VegaFly photo 7"></div>
+            <div class="carousel-slide vegafly-slide" data-index="7"><img src="images/vegafly_gallery/16.jpeg" alt="VegaFly photo 8"></div>
+            <div class="carousel-slide vegafly-slide" data-index="8"><img src="images/vegafly_gallery/17.jpeg" alt="VegaFly photo 9"></div>
+            <div class="carousel-slide vegafly-slide" data-index="9"><img src="images/vegafly_gallery/18.jpeg" alt="VegaFly photo 10"></div>
+            <div class="carousel-slide vegafly-slide" data-index="10"><img src="images/vegafly_gallery/19.jpeg" alt="VegaFly photo 11"></div>
+            <div class="carousel-slide vegafly-slide" data-index="11"><img src="images/vegafly_gallery/2.jpeg" alt="VegaFly photo 12"></div>
+            <div class="carousel-slide vegafly-slide" data-index="12"><img src="images/vegafly_gallery/20.jpeg" alt="VegaFly photo 13"></div>
+            <div class="carousel-slide vegafly-slide" data-index="13"><img src="images/vegafly_gallery/21.jpeg" alt="VegaFly photo 14"></div>
+            <div class="carousel-slide vegafly-slide" data-index="14"><img src="images/vegafly_gallery/3.jpeg" alt="VegaFly photo 15"></div>
+            <div class="carousel-slide vegafly-slide" data-index="15"><img src="images/vegafly_gallery/4.jpeg" alt="VegaFly photo 16"></div>
+            <div class="carousel-slide vegafly-slide" data-index="16"><img src="images/vegafly_gallery/5.jpeg" alt="VegaFly photo 17"></div>
+            <div class="carousel-slide vegafly-slide" data-index="17"><img src="images/vegafly_gallery/6.jpeg" alt="VegaFly photo 18"></div>
+            <div class="carousel-slide vegafly-slide" data-index="18"><img src="images/vegafly_gallery/7.jpeg" alt="VegaFly photo 19"></div>
+            <div class="carousel-slide vegafly-slide" data-index="19"><img src="images/vegafly_gallery/8.jpeg" alt="VegaFly photo 20"></div>
+            <div class="carousel-slide vegafly-slide" data-index="20"><img src="images/vegafly_gallery/9.jpeg" alt="VegaFly photo 21"></div>
+            <div class="carousel-slide vegafly-slide" data-index="21"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg" alt="VegaFly photo 22"></div>
+            <div class="carousel-slide vegafly-slide" data-index="22"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg" alt="VegaFly photo 23"></div>
+            <div class="carousel-slide vegafly-slide" data-index="23"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg" alt="VegaFly photo 24"></div>
+            <div class="carousel-slide vegafly-slide" data-index="24"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg" alt="VegaFly photo 25"></div>
+            <div class="carousel-slide vegafly-slide" data-index="25"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg" alt="VegaFly photo 26"></div>
+            <div class="carousel-slide vegafly-slide" data-index="26"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg" alt="VegaFly photo 27"></div>
+            <div class="carousel-slide vegafly-slide" data-index="27"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg" alt="VegaFly photo 28"></div>
+            <div class="carousel-slide vegafly-slide" data-index="28"><img src="images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg" alt="VegaFly photo 29"></div>
+            
+            <button class="carousel-nav carousel-prev" id="vegafly-prev">&#8249;</button>
+            <button class="carousel-nav carousel-next" id="vegafly-next">&#8250;</button>
+        </div>
+        
+        <div class="carousel-status"><span id="vegafly-current">1</span> / <span>29</span></div>
+
+        <div class="gallery-bottom">
+            <button onclick="closeGallery()" class="back-btn">Go Back to Portfolio</button>
+        </div>
+        
+    </div>
+</div>
+
+<div class="lightbox" id="spa-lightbox">
+    <button class="lightbox-close" id="spa-lb-close">&times;</button>
+    <div class="lightbox-img-wrapper">
+        <button class="lightbox-nav lightbox-prev" id="spa-lb-prev">&#8249;</button>
+        <img class="lightbox-img" id="spa-lb-img" src="" alt="Gallery Full Image">
+        <button class="lightbox-nav lightbox-next" id="spa-lb-next">&#8250;</button>
+    </div>
+    <div class="lightbox-counter"><span id="spa-lb-current">1</span> / <span id="spa-lb-total">1</span></div>
+</div>
+<script>
+window.GALLERY_DATA = {
+    'sanosat': ["images/sanosat_gallery/2sasts2.jpeg", "images/sanosat_gallery/2sats.jpeg", "images/sanosat_gallery/EPS_connector.jpeg", "images/sanosat_gallery/EPS_vbat.jpeg", "images/sanosat_gallery/RBFM&Vbat1.jpeg", "images/sanosat_gallery/RBFM&vbat0.jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg", "images/sanosat_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg", "images/sanosat_gallery/back1.jpeg", "images/sanosat_gallery/back2.jpeg", "images/sanosat_gallery/base1.jpeg", "images/sanosat_gallery/base2.jpeg", "images/sanosat_gallery/battercharger2.jpeg", "images/sanosat_gallery/batteryCharger1.jpeg", "images/sanosat_gallery/batterycharger_connector.jpeg", "images/sanosat_gallery/deployment1.jpeg", "images/sanosat_gallery/deployment1_back.jpeg", "images/sanosat_gallery/deployment2.jpeg", "images/sanosat_gallery/deployment2_back.jpeg", "images/sanosat_gallery/eps.jpeg", "images/sanosat_gallery/final.jpeg", "images/sanosat_gallery/int1.jpeg", "images/sanosat_gallery/int2.jpeg", "images/sanosat_gallery/int3.jpeg", "images/sanosat_gallery/int4.jpeg", "images/sanosat_gallery/int5.jpeg", "images/sanosat_gallery/int6.jpeg", "images/sanosat_gallery/programming1.jpeg", "images/sanosat_gallery/programming2.jpeg", "images/sanosat_gallery/top1.jpeg", "images/sanosat_gallery/top2.jpeg"],
+    'decimalsat': ["images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.47 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.48 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM (2).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.49 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.50 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.50 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.51 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.51 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (2).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM (3).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.54 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.56 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.56 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.57 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.22.57 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM (2).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.04 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.05 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.06 PM (1).jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.06 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.07 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.08 PM.jpeg", "images/decimalsat_gallery/WhatsApp Image 2025-10-30 at 5.23.09 PM.jpeg"],
+    'vegafly': ["images/vegafly_gallery/1.jpeg", "images/vegafly_gallery/10.jpeg", "images/vegafly_gallery/11.jpeg", "images/vegafly_gallery/12.jpeg", "images/vegafly_gallery/13.jpeg", "images/vegafly_gallery/14.jpeg", "images/vegafly_gallery/15.jpeg", "images/vegafly_gallery/16.jpeg", "images/vegafly_gallery/17.jpeg", "images/vegafly_gallery/18.jpeg", "images/vegafly_gallery/19.jpeg", "images/vegafly_gallery/2.jpeg", "images/vegafly_gallery/20.jpeg", "images/vegafly_gallery/21.jpeg", "images/vegafly_gallery/3.jpeg", "images/vegafly_gallery/4.jpeg", "images/vegafly_gallery/5.jpeg", "images/vegafly_gallery/6.jpeg", "images/vegafly_gallery/7.jpeg", "images/vegafly_gallery/8.jpeg", "images/vegafly_gallery/9.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (1).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM (2).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.10 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.11 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (1).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM (2).jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.12 PM.jpeg", "images/vegafly_gallery/WhatsApp Image 2025-10-30 at 5.23.13 PM.jpeg"],
+};
+</script>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
